@@ -45,7 +45,7 @@ class User extends Authenticatable
     ];
 
 
-    
+
 //creando relaion de uno a muchos del modelo usuario a posts()
 
     public function posts()
@@ -53,4 +53,8 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
 }

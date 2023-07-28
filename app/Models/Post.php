@@ -29,4 +29,19 @@ class Post extends Model
     {
         return $this->hasMany(Comentario::class);
     }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    public function checkLike(User $user)
+    {
+        // Lo que hace esto es que se situa en la tabla de likes y le decimos que contiene en la columna de
+        // user_id y que contiene el usuario pasado del post
+        // return $this->likes()->contains('user_id', $user->id );
+        return $this->likes->contains('user_id', $user->id );
+    }
+
 }
+ 
